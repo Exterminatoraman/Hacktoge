@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "843730414004",
+    "project_id": "social-buddy-f0a9d",
+    "storage_bucket": "social-buddy-f0a9d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:843730414004:android:1e1b2d606250b2a912eae1",
+        "android_client_info": {
+          "package_name": "com.example.hacktoge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "843730414004-7ag8oggja4kicgq97tmbk5acpknkudrl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmNhvRUaH6ZuiiLlcQLfxzGlRvHj_mjd8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "843730414004-7ag8oggja4kicgq97tmbk5acpknkudrl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
