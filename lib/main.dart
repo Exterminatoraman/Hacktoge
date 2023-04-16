@@ -28,7 +28,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
         theme: ThemeData(
-        primaryColor: Color.fromRGBO(21, 32, 43, 1),),
+        primarySwatch: Colors.blue,
+        ),
+
 
     title: 'Flutter Demo',
       home: loginpage(),

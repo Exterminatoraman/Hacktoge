@@ -57,7 +57,7 @@ class _profileState extends State<profile> {
                   ,),
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
 
               Row(
@@ -68,7 +68,7 @@ class _profileState extends State<profile> {
                   Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.all(5.0),
                         child: Text("20",
                             style: TextStyle(
                               fontSize: 28,
@@ -91,7 +91,7 @@ class _profileState extends State<profile> {
                   Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.all(5.0),
                         child: Text("345",
                             style: TextStyle(
                               fontSize: 28,
@@ -114,7 +114,7 @@ class _profileState extends State<profile> {
                   Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.all(5.0),
                         child: Text("12",
                             style: TextStyle(
                               fontSize: 28,
@@ -393,6 +393,8 @@ class MyHomePage extends StatelessWidget {
                   margin: EdgeInsets.all(16),
                   child: TextButton.icon(onPressed: (){
                     FirebaseAuth.instance.signOut();
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (context) => const loginpage()));
                   }, icon: Icon(Icons.close), label: Text("Sign out",
                     style: TextStyle(
                         fontSize: 24

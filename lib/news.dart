@@ -20,7 +20,7 @@ class _newsState extends State<news> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 1000,
+      height: 1200,
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -30,6 +30,7 @@ class _newsState extends State<news> {
                 onTap:(){            Navigator.push(context, MaterialPageRoute(builder: (context) =>  newsarticle()),);
                 },
                 child: Container(
+                  margin: EdgeInsets.all(5),
                   decoration: BoxDecoration(
         border: Border.all(width: 1, color: Colors.black),
         borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -44,6 +45,7 @@ class _newsState extends State<news> {
                       Row(
                         children: [
                           Padding(
+
                             padding: const EdgeInsets.all(8.0),
                             child: CircleAvatar(
                               backgroundImage: NetworkImage(url),
@@ -56,16 +58,19 @@ class _newsState extends State<news> {
                       Row(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text("Get together Coding at IITM",style: TextStyle(fontSize: 20),),
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Text("Get together Coding at IITM",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                           ),
                         ],
                       ),
-                      Container(
-                        height: 200,
-                        width: MediaQuery.of(context).size.height,
-                        child: Image.network("https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y29kaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-                        fit: BoxFit.fitWidth,),
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Container(
+                          height: 200,
+                          width: MediaQuery.of(context).size.height,
+                          child: Image.network("https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y29kaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+                          fit: BoxFit.fitWidth,),
+                        ),
                       ),
                       Row(
                         children: [
@@ -83,13 +88,16 @@ class _newsState extends State<news> {
                           ),
                         ],
                       ),
-                      ReadMoreText(st,
-                        trimLines: 2,
-                        style: TextStyle(color: Colors.black),
-                        colorClickableText: Colors.blue,
-                        trimMode: TrimMode.Line,
-                        trimCollapsedText: '...Show more',
-                        trimExpandedText: ' show less',
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ReadMoreText(st,
+                          trimLines: 2,
+                          style: TextStyle(color: Colors.black),
+                          colorClickableText: Colors.blue,
+                          trimMode: TrimMode.Line,
+                          trimCollapsedText: '...Show more',
+                          trimExpandedText: ' show less',
+                        ),
                       )
                     ],
                   ),
@@ -102,6 +110,7 @@ class _newsState extends State<news> {
                 onTap:(){Navigator.push(context, MaterialPageRoute(builder: (context) =>  newsarticle()),);
                 },
                 child: Container(
+                  margin: EdgeInsets.all(5),
                   decoration: BoxDecoration(
                     border: Border.all(width: 1, color: Colors.black),
                     borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -128,7 +137,7 @@ class _newsState extends State<news> {
                       Row(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(10.0),
                             child: Flexible(child: Text("Over 2 crore viewers watch MS Dhoni play ",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)),
                           ),
                         ],
@@ -155,13 +164,16 @@ class _newsState extends State<news> {
                           ),
                         ],
                       ),
-                      ReadMoreText(st2,
-                        trimLines: 2,
-                        style: TextStyle(color: Colors.black),
-                        colorClickableText: Colors.blue,
-                        trimMode: TrimMode.Line,
-                        trimCollapsedText: '...Show more',
-                        trimExpandedText: ' show less',
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ReadMoreText(st2,
+                          trimLines: 2,
+                          style: TextStyle(color: Colors.black),
+                          colorClickableText: Colors.blue,
+                          trimMode: TrimMode.Line,
+                          trimCollapsedText: '...Show more',
+                          trimExpandedText: ' show less',
+                        ),
                       )
                     ],
                   ),

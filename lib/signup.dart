@@ -54,7 +54,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       width: 200,
                       height: 150,
 
-                      child: Image.asset('images/LOGO.jpg')),
+                      child: Image.asset('images/uplogo.png')),
                 ),
               ),
               Form(
@@ -68,7 +68,8 @@ class _SignupScreenState extends State<SignupScreen> {
                         vertical: 10.0,
                       ),
                       child: TextFormField(
-                        decoration: InputDecoration(labelText: 'Name'),
+                        decoration: InputDecoration(labelText: 'Name',
+                          border: OutlineInputBorder(),),
                         validator: (input) => input!.trim().isEmpty
                             ? 'Please enter a valid name'
                             : null,
@@ -81,7 +82,8 @@ class _SignupScreenState extends State<SignupScreen> {
                         vertical: 10.0,
                       ),
                       child: TextFormField(
-                        decoration: InputDecoration(labelText: 'Email'),
+                        decoration: InputDecoration(labelText: 'Email',
+                          border: OutlineInputBorder(),),
                         validator: (input) => !input!.contains('@')
                             ? 'Please enter a valid email'
                             : null,
@@ -94,7 +96,8 @@ class _SignupScreenState extends State<SignupScreen> {
                         vertical: 10.0,
                       ),
                       child: TextFormField(
-                        decoration: InputDecoration(labelText: 'Password'),
+                        decoration: InputDecoration(labelText: 'Password',
+                          border: OutlineInputBorder(),),
                         validator: (input) => input!.length < 6
                             ? 'Must be at least 6 characters'
                             : null,
@@ -109,8 +112,13 @@ class _SignupScreenState extends State<SignupScreen> {
                         right: 40,
                       ),
                       child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+
+                        ),
+
                         width: double.infinity,
-                        color: Colors.blue,
                         child: _isLoading
                             ? Center(
                           child: CircularProgressIndicator(
@@ -132,7 +140,13 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                     SizedBox(height: 20.0),
                     Container(
-                      color: Colors.blue,
+                      decoration:BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+
+                      ),
+                      width: 335,
+
                       padding: EdgeInsets.symmetric(horizontal: 50),
                       child: TextButton(
                         onPressed: () => Navigator.pop(context),

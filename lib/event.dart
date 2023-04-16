@@ -17,7 +17,6 @@ class eventpage extends StatefulWidget {
   @override
   State<eventpage> createState() => _eventpageState();
 }
-
 class _eventpageState extends State<eventpage> {
   TextEditingController nameoftheevent=TextEditingController();
   TextEditingController dateoftheevent=TextEditingController();
@@ -173,6 +172,7 @@ class _eventpageState extends State<eventpage> {
                             onPressed:() {
                               fetchname(email1);
                               fetchUsers("coding");
+                              fetchevent();
                               setState((){
                                 // Navigator.push(
                                 //   context, MaterialPageRoute(builder: (context) => const homescreen()),

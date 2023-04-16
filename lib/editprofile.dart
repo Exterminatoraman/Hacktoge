@@ -17,7 +17,9 @@ String username="";
 List userhobby=[];
 List userinterest=[];
 String userbio="";
-
+String ename="";
+String eloc="";
+String edate="";
 class itemadder1 extends StatefulWidget {
   const itemadder1({Key? key}) : super(key: key);
 
@@ -267,6 +269,30 @@ fetchname(String email2) async {
     onError: (e) => print("Error getting document: $e"),
   );
 }
+// fetchevent(String eventname) async {
+//   final FirebaseFirestore fire = FirebaseFirestore.instance;
+//
+//   final docRef = fire.collection("users").doc("${eventname}");
+//   docRef.get().then(
+//         (DocumentSnapshot doc) {
+//       final data = doc.data() as Map<String, dynamic>;
+//       ename=data['eventname'];
+//       eloc=data['eventlocation'];
+//       edate=data['eventdate'];
+//     },
+//     onError: (e) => print("Error getting document: $e"),
+//   );
+// }
+Future<List<Map<String, dynamic>>> fetchevent() async {
+  QuerySnapshot<Map<String, dynamic>> usersSnapshot =
+  await FirebaseFirestore.instance
+      .collection('events')
+      .get();
+  List<Map<String, dynamic>> usersData =
+  usersSnapshot.docs.map((doc) => doc.data()).toList();
+  print(usersData);
+  return (usersData);// Do something with the fetched data...
+}
 // fetchnews(List interest1) async {
 //   final FirebaseFirestore fire = FirebaseFirestore.instance;
 //
@@ -284,7 +310,6 @@ fetchname(String email2) async {
 //
 // }
 Future<List<Map<String, dynamic>>> fetchUsers(String interest1) async {
-  print(interest1);
   QuerySnapshot<Map<String, dynamic>> usersSnapshot =
   await FirebaseFirestore.instance
       .collection('users')

@@ -28,8 +28,11 @@ class _groupState extends State<group> {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(
+                      height: 10,
+                    ),
                     Padding(
-                      padding: EdgeInsets.all(10),
+                      padding: EdgeInsets.all(15),
                       child: TextField(
                           controller: searchinterest,
                           decoration: InputDecoration(
@@ -57,77 +60,81 @@ class _groupState extends State<group> {
                       ),
                     ),
                     SizedBox(
-                      width: 20,
+                      width: 10,
                     ),
-                    Container(
-                      height: 500,
-                      child: ListView.separated(
-                          padding: const EdgeInsets.all(8),
-                          itemCount: items.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 40,
-                                      backgroundImage: NetworkImage(
-                                          items[index]['picture']),
-                                    ),
-                                    SizedBox(
-                                      width: 30,
-                                    ),
-                                    Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        SizedBox(
-                                          height: 10,
-                                        ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 500,
+                        child: ListView.separated(
+                            padding: const EdgeInsets.all(8),
+                            itemCount: items.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 40,
+                                        backgroundImage: NetworkImage(
+                                            items[index]['picture']),
+                                      ),
+                                      SizedBox(
+                                        width: 30,
+                                      ),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          SizedBox(
+                                            height: 10,
+                                          ),
 
-                                        Text(items[index]['name'],
-                                          style: TextStyle(
-                                              fontSize: 22
-                                          ),),
-                                        // Container(
-                                        //   height:50,
-                                        //   width: 100,
-                                        //   child: Text(items[index]['interest'][0]),
-                                        // ),
-                                        Container(
-                                          height: 50,
-                                          width: 200,
-                                          child: ListView.separated(
-                                              scrollDirection: Axis.horizontal,
-                                          padding: const EdgeInsets.all(8),
-                                          itemCount: items[index]['interest'].length,
-                                          itemBuilder: (BuildContext context, int index1) {
-                                          return Container(
-                                            child:Row(
-                                              children: [
-                                                Text(items[index]['interest'][index1]),
-                                                Padding(
-                                                  padding: const EdgeInsets.all(8.0),
-                                                  child: Icon(Icons.circle,
-                                                    size: 8,
+                                          Text(items[index]['name'],
+                                            style: TextStyle(
+                                                fontSize: 22,
+                                              fontWeight: FontWeight.bold,
+                                            ),),
+                                          // Container(
+                                          //   height:50,
+                                          //   width: 100,
+                                          //   child: Text(items[index]['interest'][0]),
+                                          // ),
+                                          Container(
+                                            height: 50,
+                                            width: 200,
+                                            child: ListView.separated(
+                                                scrollDirection: Axis.horizontal,
+                                            padding: const EdgeInsets.all(2),
+                                            itemCount: items[index]['interest'].length,
+                                            itemBuilder: (BuildContext context, int index1) {
+                                            return Container(
+                                              child:Row(
+                                                children: [
+                                                  Text(items[index]['interest'][index1]),
+                                                  Padding(
+                                                    padding: const EdgeInsets.all(8.0),
+                                                    child: Icon(Icons.circle,
+                                                      size: 8,
+                                                    ),
                                                   ),
-                                                ),
 
-                                              ],
-                                            )
+                                                ],
+                                              )
 
-                                          );
-                                              },
-                                         separatorBuilder: (BuildContext context,int index) => const Divider()))
-                                      ],
-                                    )
-                                  ],
-                                )
+                                            );
+                                                },
+                                           separatorBuilder: (BuildContext context,int index) => const Divider()))
+                                        ],
+                                      )
+                                    ],
+                                  )
 
-                              ],
-                            );
-                          },
-                          separatorBuilder: (BuildContext context,
-                              int index) => const Divider()
+                                ],
+                              );
+                            },
+                            separatorBuilder: (BuildContext context,
+                                int index) => const Divider()
+                        ),
                       ),
                     ),
 

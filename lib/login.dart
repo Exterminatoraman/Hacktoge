@@ -47,8 +47,8 @@ class _loginpageState extends State<loginpage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Center(child: Text("Login Page")),
-      ),
+        title: Text("Login Page")),
+
       body: SingleChildScrollView(
         child: Column(
             children: <Widget>[
@@ -59,7 +59,7 @@ class _loginpageState extends State<loginpage> {
               width: 200,
               height: 150,
 
-              child: Image.asset('images/LOGO.jpg')),
+              child: Image.asset('images/uplogo.png')),
         ),
       ),
           Padding(
