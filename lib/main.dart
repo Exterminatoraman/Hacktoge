@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:hacktoge/login.dart';
 import 'package:hacktoge/profile.dart';
+import 'calender.dart';
+import 'create.dart';
+import 'event.dart';
 import 'firebase_options.dart';
 import 'group.dart';
+import 'ideas/main.dart';
 import 'news.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'login.dart';
 Future<void> main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
-  //
-  // await Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -23,8 +27,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+        // Define the default brightness and colors.
+
+        primaryColor: Colors.lightBlue[800],),
       title: 'Flutter Demo',
-      home: homescreen(),
+      home: loginpage(),
     );
   }
 }
@@ -40,9 +49,11 @@ class _homescreenState extends State<homescreen> {
   final widgetOptions = [
     new news(),
     new group(),
+
+    new MyHomePage2(),
     new profile(),
   ];
-  final title = ["news","Group"];
+  final title = ["news","Group","Post","Account"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +68,7 @@ class _homescreenState extends State<homescreen> {
         ),
         leading: GestureDetector(
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) =>  profile()),);
+            Navigator.push(context, MaterialPageRoute(builder: (context) =>  MyHomePage()),);
           },
           child: Padding(
             padding: const EdgeInsets.fromLTRB(30,5,10,5),
@@ -72,10 +83,10 @@ class _homescreenState extends State<homescreen> {
           padding: EdgeInsets.only(right: 20.0),
           child: GestureDetector(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) =>  profile()),);
+              Navigator.push(context, MaterialPageRoute(builder: (context) =>  CalendarPage()),);
             },
             child: Icon(
-              Icons.notifications_none_outlined,
+              Icons.calendar_month_outlined,
               size: 26.0,
               color: Colors.black,
             ),
@@ -87,21 +98,17 @@ class _homescreenState extends State<homescreen> {
         child: widgetOptions.elementAt(curindex),
       ),
       bottomNavigationBar: BottomNavigationBar(items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(icon: Icon(Icons.newspaper),
-            label: 'news'
+        BottomNavigationBarItem(icon: Icon(Icons.newspaper), label: 'news'
         ),
-        BottomNavigationBarItem(icon: Icon(Icons.group),label: 'group'
+        BottomNavigationBarItem(icon: Icon(Icons.explore_outlined),label: 'group'
         ),
-        BottomNavigationBarItem(icon: Icon(Icons.account_circle),label: 'Profile'),
-        // BottomNavigationBarItem(icon: Icon(Icons.add_circle_outline),label: 'Post'),
-        //
+        BottomNavigationBarItem(icon: Icon(Icons.add_circle_outline),label: 'Post'),
+        BottomNavigationBarItem(icon: Icon(Icons.account_circle_outlined),label: 'Profile'),
         // BottomNavigationBarItem(icon: Icon(Icons.calendar_month_outlined),label: 'calender'),
-
-
       ],
         currentIndex: curindex,
         unselectedItemColor:Colors.black,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.blue,
         onTap: (int index) {
           setState(() {
             curindex = index;
