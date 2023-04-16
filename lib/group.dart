@@ -9,9 +9,15 @@ class group extends StatefulWidget {
   State<group> createState() => _groupState();
 }
 
+
 class _groupState extends State<group> {
   TextEditingController searchinterest = TextEditingController();
-
+  Future<void> getItemList(String interest) async {
+    List<Map> fetchedItemList=await fetchUsers(interest);
+    setState(() {
+      items = fetchedItemList;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,15 +38,22 @@ class _groupState extends State<group> {
                                 borderRadius: const BorderRadius.all(
                                     Radius.circular(200.0))
                             ),
+                            suffixIcon: IconButton(onPressed: () async {
+                              print(items);
+                            }, icon: Icon(Icons.send)),
                             labelText: 'Search Interest',
                           ),
-                          onSubmitted: (String str) {
+                          onTap: () {
                             setState(() async {
-                              sinterest = str;
-                              items = await fetchUsers(sinterest);
-                              print("helloo ${items} ");
+                              sinterest = searchinterest.text;
+                              getItemList(sinterest);
                             });
-                          }
+                          },
+                        onSubmitted: (String str){
+                            sinterest=str;
+                            getItemList(sinterest);
+                        },
+
                       ),
                     ),
                     SizedBox(
@@ -65,9 +78,7 @@ class _groupState extends State<group> {
                                       width: 30,
                                     ),
                                     Column(
-
                                       crossAxisAlignment: CrossAxisAlignment.start,
-
                                       children: [
                                         SizedBox(
                                           height: 10,
@@ -118,7 +129,8 @@ class _groupState extends State<group> {
                           separatorBuilder: (BuildContext context,
                               int index) => const Divider()
                       ),
-                    )
+                    ),
+
                   ]
               ),
             )

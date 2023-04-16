@@ -6,7 +6,6 @@ import 'create.dart';
 import 'event.dart';
 import 'firebase_options.dart';
 import 'group.dart';
-import 'ideas/main.dart';
 import 'news.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -29,10 +28,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
         theme: ThemeData(
-        // Define the default brightness and colors.
+        primaryColor: Color.fromRGBO(21, 32, 43, 1),),
 
-        primaryColor: Colors.lightBlue[800],),
-      title: 'Flutter Demo',
+    title: 'Flutter Demo',
       home: loginpage(),
     );
   }

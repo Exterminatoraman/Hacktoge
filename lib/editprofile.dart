@@ -133,12 +133,7 @@ class _itemadderState1 extends State<itemadder1> {
                   ),
                   onTap: (){interests.add(interest.text);}
               ),
-
             ),
-
-
-
-
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -164,7 +159,6 @@ class _itemadderState1 extends State<itemadder1> {
                           hobbies.add(hobby.text);
                           url = await fetchItemList();
 
-                          final FirebaseAuth db = FirebaseAuth.instance;
                           final FirebaseFirestore fire = FirebaseFirestore
                               .instance;
                           final washingtonRef = fire.collection("users").doc(
@@ -227,11 +221,7 @@ class _itemadderState1 extends State<itemadder1> {
       ]
                   )
       )
-
-
-
     );
-
   }
 }
 getFromGallery() async {
@@ -239,7 +229,6 @@ getFromGallery() async {
   var pickedFile = await imgpicker.pickImage(source: ImageSource.gallery);
   if(pickedFile != null){
     final File imageFile = File(pickedFile.path);
-
     return imageFile;
   }else{
     print("No image is selected.");
@@ -247,8 +236,6 @@ getFromGallery() async {
 }
 Future<void> uploadList(File file) async {
   final storage = FirebaseStorage.instance;
-  print(b);
-  print(email1);
   final itemFolder = storage.ref().child('items/${email1}');
   final picName = '${email1}.jpg';
   final picRef = itemFolder.child(picName);
@@ -262,7 +249,6 @@ Future<String> fetchItemList() async {
   final itemFolder = storage.ref().child('items/$email1');
   final picRef = itemFolder.child('$email1.jpg');
   final picUrl = await (await picRef).getDownloadURL();
-  print(picUrl);
   return picUrl;
 }
 fetchname(String email2) async {
@@ -272,36 +258,31 @@ fetchname(String email2) async {
   docRef.get().then(
         (DocumentSnapshot doc) {
       final data = doc.data() as Map<String, dynamic>;
-      print(email2);
       url=data['picture'];
       username=data['name'];
-      print(username);
       userhobby=data['hobbies'];
-      print(userhobby);
       userinterest=data['interest'];
-      print(userinterest);
       userbio=data['bio'];
-      print(userbio);
     },
     onError: (e) => print("Error getting document: $e"),
   );
 }
-fetchnews(List interest1) async {
-  final FirebaseFirestore fire = FirebaseFirestore.instance;
-
-  fire.collection("users").where("interest", whereIn: interest1).get().then(
-        (querySnapshot) {
-          print(querySnapshot.docs);
-      print("Successfully completed");
-      final allData = querySnapshot.docs.map((doc) => doc.data()).toList();
-
-      print(allData);
-
-    },
-    onError: (e) => print("Error completing: $e"),
-  );
-
-}
+// fetchnews(List interest1) async {
+//   final FirebaseFirestore fire = FirebaseFirestore.instance;
+//
+//   fire.collection("users").where("interest", whereIn: interest1).get().then(
+//         (querySnapshot) {
+//           print(querySnapshot.docs);
+//       print("Successfully completed");
+//       final allData = querySnapshot.docs.map((doc) => doc.data()).toList();
+//
+//       print(allData);
+//
+//     },
+//     onError: (e) => print("Error completing: $e"),
+//   );
+//
+// }
 Future<List<Map<String, dynamic>>> fetchUsers(String interest1) async {
   print(interest1);
   QuerySnapshot<Map<String, dynamic>> usersSnapshot =
@@ -311,6 +292,5 @@ Future<List<Map<String, dynamic>>> fetchUsers(String interest1) async {
       .get();
   List<Map<String, dynamic>> usersData =
   usersSnapshot.docs.map((doc) => doc.data()).toList();
-  print(usersData);
   return (usersData);// Do something with the fetched data...
 }

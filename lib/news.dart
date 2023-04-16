@@ -32,7 +32,7 @@ class _newsState extends State<news> {
                 child: Container(
                   decoration: BoxDecoration(
         border: Border.all(width: 1, color: Colors.black),
-        borderRadius: BorderRadius.all(Radius.circular(40)),
+        borderRadius: BorderRadius.all(Radius.circular(20)),
       ),
 
 
@@ -99,12 +99,12 @@ class _newsState extends State<news> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
-                onTap:(){            Navigator.push(context, MaterialPageRoute(builder: (context) =>  newsarticle()),);
+                onTap:(){Navigator.push(context, MaterialPageRoute(builder: (context) =>  newsarticle()),);
                 },
                 child: Container(
                   decoration: BoxDecoration(
                     border: Border.all(width: 1, color: Colors.black),
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
                   ),
 
 

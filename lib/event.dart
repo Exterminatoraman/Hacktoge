@@ -14,7 +14,6 @@ import 'dart:io';
 String evenname="";
 class eventpage extends StatefulWidget {
   const eventpage({Key? key}) : super(key: key);
-
   @override
   State<eventpage> createState() => _eventpageState();
 }
@@ -73,21 +72,21 @@ class _eventpageState extends State<eventpage> {
                       radius: 100,
                       backgroundImage: NetworkImage(url)
                   ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 20, 0,0),
-                    child: SizedBox(
-                      width: 200,
-                      child: ElevatedButton(
-                        onPressed: ()
-                        async {
-                          b=await getFromGallery();
-                          uploadList(b);
-
-                        },
-                        child: Text("Edit profile image"),
-                      ),
-                    ),
-                  ),
+                  // Padding(
+                  //   padding: EdgeInsets.fromLTRB(20, 20, 0,0),
+                  //   child: SizedBox(
+                  //     width: 200,
+                  //     child: ElevatedButton(
+                  //       onPressed: ()
+                  //       async {
+                  //         b=await getFromGallery();
+                  //         uploadList(b);
+                  //
+                  //       },
+                  //       child: Text("Edit profile image"),
+                  //     ),
+                  //   ),
+                  // ),
                   SizedBox(
                     height: 20,
                   ),
